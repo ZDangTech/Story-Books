@@ -36,8 +36,14 @@ module.exports = function(passport){
     })
 
     passport.deserializeUser((id, done) => {
-        User.findById(id, (err, user) => done(err, user)
-        )
+        User.findById(id)
+        .then (user => {
+            done(null,user);
+            // res.redirect('/dashboard')
+        })
+        .catch(err => {
+            console.log(err)
+        })
     })
 }
 
