@@ -42,7 +42,7 @@ module.exports = function(passport){
             // res.redirect('/dashboard')
         })
         .catch(err => {
-            console.log(err)
+            console.error(err)
         })
     })
 }
